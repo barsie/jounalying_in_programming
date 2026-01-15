@@ -1,0 +1,6 @@
+red: apple, cherry
+yellow: banana, mango
+black, green: grapes
+orange: naranjos
+green: limon
+green, yellow: pinaple
