@@ -7,7 +7,7 @@ import requests
 url = 'https://web.archive.org/web/20230902185655/https://en.everybodywiki.com/100_Most_Highly-Ranked_Films'
 db_name = 'Movies_db'
 table_name = 'TOP_25'
-csv_path = '/CodingPython/pythonProjects/WebScraping/'
+csv_path = '../WebScraping/top_25_rotten_tomatoes.csv'
 df = pd.DataFrame(columns=["Rotten Tomatoes' Top 100", "Film", "Year"])
 
 # initialize counter loop

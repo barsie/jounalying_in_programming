@@ -7,8 +7,8 @@ import requests
 url = 'https://web.archive.org/web/20230902185655/https://en.everybodywiki.com/100_Most_Highly-Ranked_Films'
 db_name = 'Movies_db'
 table_name = 'TOP_50'
-csv_path = '/CodingPython/pythonProjects/WebScraping/'
-df = pd.DataFrame(columns=['Average Rank', 'Film', 'Year'])
+csv_path = '../WebScraping/top_50_movies.csv'
+df = pd.DataFrame(columns=['Avarage Rank', 'Film', 'Year'])
 
 # initialize counter loop
 count = 0
