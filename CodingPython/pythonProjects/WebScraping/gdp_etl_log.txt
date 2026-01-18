@@ -1,0 +1,25 @@
+2026-Jan-18-13:05:21,Preliminaries complete. Initializing ETL process
+2026-Jan-18-13:05:27,Data Extraction completed. Initiaiting Transformation process
+2026-Jan-18-13:05:27,Transformation process completed. Initiating Loading process
+2026-Jan-18-13:08:00,Preliminaries complete. Initializing ETL process
+2026-Jan-18-13:08:18,Data Extraction completed. Initiaiting Transformation process
+2026-Jan-18-13:08:18,Transformation process completed. Initiating Loading process
+2026-Jan-18-13:08:18,Data saved to CSV file
+2026-Jan-18-13:08:18,SQL initialization process
+2026-Jan-18-13:24:04,Preliminaries complete. Initializing ETL process
+2026-Jan-18-13:24:08,Data Extraction completed. Initiaiting Transformation process
+2026-Jan-18-13:24:08,Transformation process completed. Initiating Loading process
+2026-Jan-18-13:24:08,Data saved to CSV file
+2026-Jan-18-13:24:08,SQL initialization process
+2026-Jan-18-13:27:41,Preliminaries complete. Initializing ETL process
+2026-Jan-18-13:27:44,Data Extraction completed. Initiaiting Transformation process
+2026-Jan-18-13:27:44,Transformation process completed. Initiating Loading process
+2026-Jan-18-13:27:44,Data saved to CSV file
+2026-Jan-18-13:27:44,SQL initialization process
+2026-Jan-18-13:33:56,Preliminaries complete. Initializing ETL process
+2026-Jan-18-13:34:00,Data Extraction completed. Initiaiting Transformation process
+2026-Jan-18-13:34:00,Transformation process completed. Initiating Loading process
+2026-Jan-18-13:34:00,Data saved to CSV file
+2026-Jan-18-13:34:00,SQL initialization process
+2026-Jan-18-13:34:00,Data loaded to database as table. Running the query
+2026-Jan-18-13:34:00,Logging Process Completed
