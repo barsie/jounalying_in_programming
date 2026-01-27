@@ -44,7 +44,7 @@ def extract():
         if csvfile != target_file:
             extracted_data = pd.concat([extracted_data, pd.DataFrame(extract_from_csv(csvfile))], ignore_index=True)
     
-    # precess all json files
+    # process all json files
     for jsonfile in glob.glob("*.json"):
         extracted_data = pd.concat([extracted_data, pd.DataFrame(extract_from_json(jsonfile))], ignore_index=True)
     

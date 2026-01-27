@@ -81,8 +81,9 @@ def run_query(query_statement, sql_connection):
     print(query_output)
 
 def log_progress(message):
-    ''' This function logs the mentioned message at a given stage of the code execution to a log file. Function returns nothing'''
-    timestamp_format = "%Y-%h-%d-%H:%M:%S"
+    ''' This function logs the mentioned message at a given stage of the code execution to a log file. 
+    Function returns nothing.'''
+    timestamp_format = "%Y-%h-%d-%H:%M:%S" #Year-Monthname-day-Hour-Minutes-Seconds
     now = datetime.now() # get current time
     timestamp = now.strftime(timestamp_format)
     with open("./gdp_etl_log.txt", "a") as file:

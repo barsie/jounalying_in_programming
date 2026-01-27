@@ -1,0 +1,1 @@
+SELECT * FROM sales_detail LIMIT 100;
