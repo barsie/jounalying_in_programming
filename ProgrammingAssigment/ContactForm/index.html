@@ -7,41 +7,14 @@
     <title>The Form Company</title>
 
     <style>
-        body {
-            box-sizing: border-box;
-            margin: 2rem;
-            font-family: Arial;
-        }
-
-        .form-item {
-            width: 420px;
-            display: flex;
-            flex-direction: column;
-            margin-top: 1rem;
-        }
-
-        fieldset{
-            border: none;
-            margin-left: -.9rem;
-            margin-top: 1rem;
-        }
-
+        body {box-sizing: border-box; margin: 2rem; font-family: Arial;}
+        .form-item { width: 420px; display: flex; flex-direction: column; margin-top: 1rem;}
+        fieldset{ border: none; margin-left: -.9rem; margin-top: 1rem;}
         input,
         textarea,
-        select {
-            padding: .6rem;
-            margin-top: 5px;
-        }
-
-        button {
-            margin-top: 1rem;
-            padding: .6rem;
-        }
-
-        .error {
-            color: red;
-            font-size: 14px;
-        }
+        select { padding: .6rem; margin-top: 5px;}
+        button { margin-top: 1rem; padding: .6rem;}
+        .error { color: red; font-size: 14px;}
     </style>
 
 </head>
@@ -72,7 +45,7 @@
 
         <div class="form-item">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" required minlength="2"></textarea>
             <span class="error" id="messageError"></span>
         </div>
 
@@ -93,12 +66,12 @@
             </select>
         </div>
 
-        <button type="submit">Preview</button>
+        <button type="submit">Submit and Preview</button>
     </form>
 
     <hr>
 
-    <h2>Preview Data</h2>
+    <h2>Preview Your Data</h2>
     <p><strong>Name:</strong> <span id="previewName"></span></p>
     <p><strong>Email:</strong> <span id="previewEmail"></span></p>
     <p><strong>Phone:</strong> <span id="previewPhone"></span></p>
