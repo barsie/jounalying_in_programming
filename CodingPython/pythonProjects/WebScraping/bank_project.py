@@ -14,6 +14,7 @@ import sqlite3
 def log_progress(message):
     '''This function logs the mentioned message of a given stage of the
     code execution to a log file. Function returns nothing'''
+
     timestamp_format = '%Y-%h-%d-%H:%M-%S'
     now = datetime.now()
     timestamp = now.strftime(timestamp_format)
@@ -29,31 +30,21 @@ def extract(url, table_attribs):
     html_page = requests.get(url).text
     data = BeautifulSoup(html_page, 'html.parser')
     df = pd.DataFrame(columns=table_attribs)
-
-    # tables = data.find_all("tbody")
-    # print(tables)
-
-    # rows = tables[2].find_all("tr")
-    # print(rows)
-
-    table = data.find("table", class_="wikitable")
-
-    if table is None:
-        raise ValueError("Wikitable not found")
-
-    rows = table.find_all("tr")
-
+    tables = data.find_all('tbody')
+    rows = tables[0].find_all('tr')
 
 
     for row in rows:
-        col = row.find_all("td")
-        if len(col) != 0:
-            data_dict ={
-                "Name": col[0].contents[0],
-                "MC_USD_Billions": col[1].contents[0]
+        if row.find("td") is not None:
+            col = row.find_all("td")
+            bank_name = col[1].find_all('a')[1]['title']
+            market_cap = col[2].contents[0][:-1]
+            data_dict = {
+                "Name": bank_name,
+                "MC_USD_Billions": float(market_cap)
             }
             df1 = pd.DataFrame(data_dict, index=[0])
-            df = pd.concat([df1, df], ignore_index=True)
+            df = pd.concat([df, df1], ignore_index=True)
 
     return df
 
@@ -67,13 +58,12 @@ def transform(df, csv_path):
     exchange_df = pd.read_csv(csv_path)
 
     # convert the enchange rate to dictionary: {Currency: Rate}
-    exchange_rate = exchange_df.set_index(exchange_df.to_dict())[exchange_df.columns[1]]
+    exchange_rate = exchange_df.set_index(exchange_df.columns[0])[exchange_df.columns[1]].to_dict()
 
     # Add new column with converted market capitalization
-    df["MC_USD_Billions"] = [np.round(x * exchange_rate['USD'], 2) for x in df['MC_USD_Billions']]
-    df["MC_GBP_Billions"] = [np.round(x * exchange_rate['GPD'], 2) for x in df['MC_GBP_Billions']]
-    df["MC_EUR_Billions"] = [np.round(x * exchange_rate['EUR'], 2) for x in df['MC_EUR_Billions']]
-    print(df['MC_EUR_Billion'][4])
+    # Note: Data is already in USD, so no conversion needed for USD column
+    df["MC_GBP_Billions"] = [np.round(x * exchange_rate['GBP'], 2) for x in df['MC_USD_Billions']]
+    df["MC_EUR_Billions"] = [np.round(x * exchange_rate['EUR'], 2) for x in df['MC_USD_Billions']]
 
     return df
 
@@ -100,9 +90,9 @@ def run_query(query_statement, sql_connection):
 functions in the correct order to complete the project. Note that this
 portion is not inside any function.'''
 
-url = 'https://en.wikipedia.org/wiki/List_of_largest_banks'
-output_path = '../WebScraping/Largest_bank_data.csv'
-csv_path = '../WebScraping/exchange_rate.csv'
+url = 'https://web.archive.org/web/20230908091635/https://en.wikipedia.org/wiki/List_of_largest_banks'
+output_path = './CodingPython/pythonProjects/WebScraping/List_of_largest_banks.csv'
+csv_path = './CodingPython/pythonProjects/WebScraping/exchange_rate.csv'
 db_name = 'Banks.db'
 table_name = "Largest_banks"
 table_attribs = ["Name", "MC_USD_Billions", "MC_GBP_Billions", "MC_EUR_Billions"]
@@ -115,7 +105,7 @@ df = extract(url, table_attribs)
 log_progress("Data Extraction completed. Initiaiting Transformation process")
 
 # Logging the transformation process
-df = transform(df)
+df = transform(df, csv_path)
 log_progress("Transformation process completed. Initiating Loading process")
 
 # Logging the loading process
@@ -129,7 +119,13 @@ log_progress("SQL initialization process")
 load_to_db(df, sql_connection, table_name)
 log_progress("Data loaded to database as table. Running the query")
 
-query_statement = f"SELECT * from {table_name} WHERE MC_GBP_Billions >= 10"
+query_statement = f"SELECT * FROM {table_name}"
+run_query(query_statement, sql_connection)
+
+query_statement = f"SELECT AVG(MC_GBP_Billions) FROM {table_name}"
+run_query(query_statement, sql_connection)
+
+query_statement = f'SELECT name FROM {table_name} LIMIT 5'
 run_query(query_statement, sql_connection)
 
 log_progress("Logging Process Completed")

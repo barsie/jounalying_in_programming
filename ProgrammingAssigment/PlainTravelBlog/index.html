@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog Website</title>
+</head>
+<body>
+    <style>
+
+        body{ max-width: 720px; margin: 2rem;}
+        h1{ font-size: 4rem; font-weight: bold;}
+        .nav{ display: flex; flex-direction: row; gap: 4rem;}
+        #link{  
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: black;
+            text-align: center;
+        }
+        .dest-one{ background-color: aquamarine;}
+        .dest-two{ background-color: aqua;}
+        .dest-three { background-color: bisque;}
+        .dest-four { background-color: chocolate;}
+
+        hr{ border: 0; height: 1px; background-color: black; width: 100%; margin-top: 2rem;}
+
+        .target-dest{ display: none;}
+        .target-dest:target{ display: block;}
+
+    </style>
+
+    <h1>Travel Blog</h1>
+    <section class="">        
+        <div class="nav">
+            <a id="link" class="dest-one" href="#travel-destination-one">1</a>
+            <a id="link" class="dest-two" href="#travel-destination-two">2</a>
+            <a id="link" class="dest-three" href="#travel-destination-three">3</a>
+            <a id="link" class="dest-four" href="#travel-destination-four">4</a>
+        </div>
+        <hr class="">
+
+        <div id="travel-destination-one" class="target-dest">
+            <h2>Destination 1: Europe</h2>
+            <ol>
+                <li>France</li>
+                <ul>
+                    <li><a href="/traveldestination.html">Paris</a></li>
+                    <li>Nice</li>
+                    <li>Lion</li>
+                </ul>
+                <li>Italy</li>
+                <ul>
+                    <li>Rome</li>
+                    <li>Florence</li>
+                    <li>Venice</li>
+                </ul>
+                <li>Greece</li>
+                <ul>
+                    <li>Athens</li>
+                    <li>Thessaloniki</li>
+                    <li>Sataroni</li>
+                </ul>
+            </ol>
+        </div>
+
+        <div id="travel-destination-two" class="target-dest">
+            <h2>Destination 2: Asia</h2>
+            <ol>
+            <li>Japan</li>
+                <ul>
+                    <li>Tokio</li>
+                    <li>Kyoto</li>
+                    <li>Osaka</li>
+                </ul>
+                <li>China</li>
+                <ul>
+                    <li>Beijin</li>
+                    <li>Sanghai</li>
+                    <li>Xi'an</li>
+                </ul>
+                <li>Indian</li>
+                <ul>
+                    <li>New Delhi</li>
+                    <li>Mumbai</li>
+                    <li>Jaipur</li>
+                </ul>
+            </ol>
+        </div>
+        
+        <div id="travel-destination-three" class="target-dest">
+            <h2>Destination 3: America</h2>
+            <ol>
+            <li>United States</li>
+                <ul>
+                    <li>New York City</li>
+                    <li>Los Angeles</li>
+                    <li>Chicago</li>
+                </ul>
+                <li>Brazil</li>
+                <ul>
+                    <li>Rio de Janeiro</li>
+                    <li>Sao Paolo</li>
+                    <li>Salvador</li>
+                </ul>
+                <li>Canada</li>
+                <ul>
+                    <li><a href="/traveldestination.html">Toronto</a></li>
+                    <li>Vancouver</li>
+                    <li>Montreal</li>
+                </ul>
+            </ol>
+        </div>
+
+        <div id="travel-destination-four" class="target-dest">
+            <h2>Destination 4: Africa</h2>
+            <ol>
+                <li>South Africa</li>
+                <ul>
+                    <li>Cape Town</li>
+                    <li>Johannesburg</li>
+                    <li>Durban</li>
+                </ul>
+                <li>Egypt</li>
+                <ul>
+                    <li>El Cairo</li>
+                    <li>Luxor</li>
+                    <li>Sharm El Sheik</li>
+                </ul>
+                <li>Morocco</li>
+                <ul>
+                    <li>Marrakech</li>
+                    <li>Casablanca</li>
+                    <li><a href="/traveldestination.html">Fez</a></li>
+                </ul>
+            </ol>
+        </div>
+
+    </section>
+</body>
+</html>

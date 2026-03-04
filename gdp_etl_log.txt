@@ -1,0 +1,3 @@
+2026-Feb-06-07:10:50,Preliminaries complete. Initializing ETL process
+2026-Feb-06-07:11:19,Data Extraction completed. Initiaiting Transformation process
+2026-Feb-06-07:11:19,Transformation process completed. Initiating Loading process
