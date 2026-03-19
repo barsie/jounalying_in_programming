@@ -1,0 +1,43 @@
+{
+  "books": [
+    {
+      "title": "Good will in Programming a Programmer",
+      "author": {
+        "firstName": "Vicario",
+        "lastName": "Datumri"
+      },
+      "publicationYear": 1990,
+      "details": {
+        "publisher": "Univesity of The People",
+        "pageCount": 152
+      },
+      "available": true
+    },
+    {
+      "title": "Why to learn AI not Coding!",
+      "author": {
+        "firstName": "Arcan",
+        "lastName": "Levin"
+      },
+      "publicationYear": 2001,
+      "details": {
+        "publisher": "Python Academic Learing Center",
+        "pageCount": 404
+      },
+      "available": false
+    },
+    {
+      "title": "Algorithms for food Analysis",
+      "author": {
+        "firstName": "Maria",
+        "lastName": "Jose"
+      },
+      "publicationYear": 2026,
+      "details": {
+        "publisher": "Universidad de Burgos",
+        "pageCount": 212
+      },
+      "available": true
+    }
+  ]
+}

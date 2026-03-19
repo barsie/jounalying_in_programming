@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+
+<html>
+<head>
+  <title>Book Catalog</title>
+  <style>
+    body { font-family: Arial;}
+    ul {border: 1px solid #ccc; padding: 2rem; list-style: circle;}
+    li {list-style: none}
+  </style>
+</head>
+
+<body>
+  <h2>Book Inventory</h2>
+
+  <xsl:for-each select="bookCatalog/bookElement">
+    <ul class="book">
+      <h3><xsl:value-of select="bookTitle"/></h3>
+      <li>Author: 
+        <xsl:value-of select="bookAuthor/authorFirstName"/> 
+        <xsl:value-of select="bookAuthor/authorLastName"/>
+      </li>
+      <li>Publication Year: <xsl:value-of select="bookTitle/@publicationYear"/></li>
+
+      <li>Publisher: 
+        <xsl:value-of select="bookPublisher/publisherName"/>
+      </li>
+
+      <li>
+        Available:
+        <span>
+          <xsl:attribute name="class">
+            <xsl:choose>
+              <xsl:when test="@isAvailable='true'">Yes</xsl:when>
+              <xsl:otherwise>No</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
+
+          <xsl:value-of select="@isAvailable"/>
+        </span>
+      </li>
+
+      
+    </ul>
+  </xsl:for-each>
+
+</body>
+</html>
+
+</xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App Demo</title>
+
+    <style>
+      body {
+        width: auto;
+        background-color: #e5e5e5;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+      }
+
+      .task {
+        padding: 8px;
+        width: 70%;
+      }
+
+      .btn {
+        padding: 8px;
+        background-color: #0072dd;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        width: auto;
+        margin-top: 10px;
+        margin-left: -0.8rem;
+        padding: 8px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        font-size: medium;
+      }
+
+      .completed span {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .btn-container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.5rem;
+      }
+      .small-btn {
+        margin-left: 5px;
+        padding: 0.4rem;
+        background-color: #001aaa;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>To-Do List</h2>
+
+      <input type="text" id="taskInput" class="task" placeholder="Enter task" />
+      <button id="addBtn" class="btn">Add Task</button>
+
+      <ul id="taskList"></ul>
+    </div>
+
+    <script>
+      const addTask = document.getElementById("addBtn");
+      const taskInput = document.getElementById("taskInput");
+      const taskList = document.getElementById("taskList");
+
+      // Add New Task
+      addTask.addEventListener("click", function () {
+        const taskText = taskInput.value;
+
+        if (taskText === "") {
+          alert("Please enter a task");
+          return;
+        }
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+        <input type="checkbox" class="complete-checkbox">
+        <span>${taskText}</span>
+        <div class="btn-container">
+          <button class="edit-btn small-btn">Edit</button>
+          <button class="remove-btn small-btn">Remove</button>
+        </div>
+      `;
+
+        taskList.appendChild(li);
+
+        taskInput.value = ""; // clean the input afte adding a task
+      });
+
+      // Event Delegation (ONE listener for all buttons & checkboxes)
+      taskList.addEventListener("click", function (e) {
+        const li = e.target.closest("li");
+
+        if (e.target.classList.contains("remove-btn")) {
+          li.remove();
+        }
+
+        if (e.target.classList.contains("edit-btn")) {
+          const span = li.querySelector("span");
+          const newText = prompt("Edit your task:", span.textContent);
+
+          if (newText !== null && newText !== "") {
+            span.textContent = newText;
+          }
+        }
+      });
+
+      // Checkbox (Complete / Incomplete)
+      taskList.addEventListener("change", function (e) {
+        if (e.target.classList.contains("complete-checkbox")) {
+          const li = e.target.parentElement;
+          li.classList.toggle("completed");
+        }
+      });
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul, li{
+    list-style: none;
+}
+
+#bookList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.book-item {
+  background: white;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.book-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.book-details {
+  margin-left: 20px;
+}

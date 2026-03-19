@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="bookCatalog">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="bookElement" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+
+              <xs:element name="bookTitle">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="publicationYear" type="xs:integer" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="bookAuthor">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="authorFirstName" type="xs:string"/>
+                    <xs:element name="authorLastName" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="bookDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="publisher" type="xs:string"/>
+                    <xs:element name="pageCount" type="xs:integer"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              
+            </xs:sequence>
+
+            <xs:attribute name="bookId" type="xs:string" use="required"/>
+            <xs:attribute name="isAvailable" type="xs:boolean" use="required"/>
+
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

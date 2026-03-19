@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./styles/catalog.xls"?>
+
+<bookCatalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalog.xsd">
+
+  <bookElement bookId="B001" isAvailable="true">
+    <bookTitle publicationYear="1925">The Great Gatsby</bookTitle>
+    <bookAuthor>
+      <authorFirstName>F. Scott</authorFirstName>
+      <authorLastName> Fitzgerald</authorLastName>
+    </bookAuthor>
+    <bookPublisher>
+      <publiserName>Toronto Wills</publiserName>
+    </bookPublisher>
+  </bookElement>
+
+  <bookElement bookId="B002" isAvailable="false">
+
+    <bookTitle publicationYear="1949">Great Seam Book</bookTitle>
+
+    <bookAuthor>
+      <authorFirstName>George</authorFirstName>
+      <authorLastName> Torneveing</authorLastName>
+    </bookAuthor>
+
+    <bookDetails>
+      <publisher>Tirant Publication</publisher>
+      <pageCount>100</pageCount>
+    </bookDetails>
+
+  </bookElement>
+
+    <bookElement bookId="B002" isAvailable="true">
+
+    <bookTitle publicationYear="1949">Austing Torino</bookTitle>
+
+    <bookAuthor>
+      <authorFirstName>Vil</authorFirstName>
+      <authorLastName> Vinashinmoring</authorLastName>
+    </bookAuthor>
+
+    <bookDetails>
+      <publisher>Titntu</publisher>
+      <pageCount>1800</pageCount>
+    </bookDetails>
+
+  </bookElement>
+
+</bookCatalog>
